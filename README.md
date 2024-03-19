@@ -10,6 +10,19 @@ They've undertaken the path to modernization, across everything from the databas
 * Target and Personalize User Experiences - Launch Airways wants to roll out Launch Club as a means to reward their most loyal customers, and drive engagement in the higher tiers. 
 * (Coming Soon) Measure and experiment
 
+## Running 
+
+* Clone this repo 
+* `npm i` from within the project directory 
+* `npm run dev` to start the project 
+
+## Application Details 
+
+* NextJS 14 App Router based application 
+* Drizzle for Database ORM 
+* TailwindCSS + Shadcn UI 
+* Runs extremely well in Railway.app 
+
 ## Setup 
 
 These values are in the internal Confluence
