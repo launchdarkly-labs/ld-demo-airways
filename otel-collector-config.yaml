@@ -1,0 +1,40 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+
+exporters:
+  logging:
+
+  otlp/jaeger:
+    endpoint: jaeger-all-in-one:4317
+    tls:
+      insecure: true
+
+  otlphttp/launchdarkly:
+    traces_endpoint: https://events.launchdarkly.com/otlp/traces
+    encoding: json
+    headers:
+      Authorization: ${env:LD_ACCESS_TOKEN}
+      project-key: toggle-airlines
+      environment-key: henry-dev
+    compression: none
+
+processors:
+  batch:
+
+extensions:
+  health_check:
+
+service:
+  extensions: [health_check]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logging, otlp/jaeger, otlphttp/launchdarkly]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logging]

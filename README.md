@@ -14,6 +14,7 @@ They've undertaken the path to modernization, across everything from the databas
 
 * Clone this repo 
 * `npm i` from within the project directory 
+* `docker compose up` to start the OpenTelemetry collector. Once it's running you can view traces at `http://localhost:16686`.
 * `npm run dev` to start the project 
 
 ## Application Details 
@@ -29,7 +30,8 @@ These values are in the internal Confluence
 
 ```bash 
 NEXT_PUBLIC_LD_CLIENT_KEY='<LaunchDarkly Client SDK Key>'
-LD_SERVER_KEY='<LaunchDarkly Server SDK Key'
+LD_SERVER_KEY='<LaunchDarkly Server SDK Key>'
+LD_ACCESS_TOKEN='<LaunchDarkly Access Token with write permissions>'
 DATABASE_URL='<database URL for PostgreSQL database>'
 REDIS_URL='<database URL for Redis database>'
 ```
@@ -40,6 +42,15 @@ REDIS_URL='<database URL for Redis database>'
 
 * `flightDb` - Boolean Flag, Server Side (no client side checked)
 * `launchClubLoyalty` -  Boolean Flag, Client-Side Key checked 
+
+### Metrics to create
+
+Create metrics in LaunchDarkly with the following **Event keys**:
+
+* `http.latency;method=GET;route=/api/airports/route` (numeric metric, `ms` unit of measure,  **p99** analysis method, success criteria **lower**)
+* `http.5XX;method=GET,route=/api/airports/route` (numeric metric, `ms` unit of measure,  **mean** analysis method, success criteria **lower**)
+
+These correspond to latency and 5xx response codes correspondingly.
 
 ### Release Guardian
 Control over the database is in the `/app/api/route.ts` file where you'll find a simple conditional around the feature flag `flightDb`. The Redis database should perform better, but the PostgreSQL database will eventually result in failed attempts. 
