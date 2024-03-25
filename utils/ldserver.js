@@ -1,9 +1,13 @@
+import { TracingHook } from "@launchdarkly/node-server-sdk-otel";
 import LaunchDarkly from "launchdarkly-node-server-sdk";
 
 async function initialize() {
   const SDK_KEY = process.env.LAUNCHDARKLY_SDK_KEY;
 
-  const client = LaunchDarkly.init(SDK_KEY);
+  console.log("Initializing with hooks");
+  const client = LaunchDarkly.init(SDK_KEY, {
+    hooks: [new TracingHook({ spans: true })],
+  });
   globalThis.LaunchDarklyServerClient = await client.waitForInitialization();
 
   return globalThis.LaunchDarklyServerClient;
