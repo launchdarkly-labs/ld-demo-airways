@@ -9,6 +9,9 @@ if (!pgConnectionString) {
 const pgClient = postgres(pgConnectionString);
 
 export const fetchAirportsFromPostgres = async () => {
+  // sleep for 150ms
+  await new Promise((resolve) => setTimeout(resolve, 150));
+
   const db = drizzle(pgClient);
   const allAirports = await db.select().from(airports);
   return allAirports;

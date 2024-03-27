@@ -15,7 +15,7 @@ export async function GET(request: NextRequest, response: NextResponse) {
     const context = getFlagContext();
 
     // First check to see if we should use FastCache
-    const enableFastCache = await ldClient.variation(
+    const enableFastCache = await ldClient.boolVariation(
       "enableFastCache",
       context,
       false
@@ -27,7 +27,7 @@ export async function GET(request: NextRequest, response: NextResponse) {
     }
 
     // if flightDb is enabled, fetch data from Postgres. Otherwise, fetch from Redis.
-    const flightDb = await ldClient.variation("flightDb", context, false);
+    const flightDb = await ldClient.boolVariation("flightDb", context, false);
     if (flightDb) {
       console.log("Fetching data from Postgres");
 
