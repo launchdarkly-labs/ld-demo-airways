@@ -42,14 +42,6 @@ export async function GET(request: NextRequest, response: NextResponse) {
   }
 }
 
-const getFlagContext = () => {
-  return {
-    kind: "user",
-    key: "jenn+" + Math.random().toString(36).substring(2, 5),
-    name: "jenn toggles",
-  };
-};
-
 export async function POST(request: NextRequest, response: NextResponse) {
   try {
     const redis = new Redis(process.env.REDIS_URL || "");
@@ -63,3 +55,11 @@ export async function POST(request: NextRequest, response: NextResponse) {
     return new Response("Internal Server Error", { status: 500 });
   }
 }
+
+const getFlagContext = () => {
+  return {
+    kind: "user",
+    key: "jenn+" + Math.random().toString(36).substring(2, 5),
+    name: "jenn toggles",
+  };
+};
