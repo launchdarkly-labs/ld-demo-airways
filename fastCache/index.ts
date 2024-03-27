@@ -145,11 +145,11 @@ const AIRPORTS = [
   },
 ];
 
-export const fetchFlightsFromFastCache = async () => {
+export const fetchAirportsFromFastCache = async () => {
   const randomSleep = Math.floor(Math.random() * 120);
   await new Promise((resolve) => setTimeout(resolve, randomSleep));
 
-  const randomError = Math.random() > 0.85;
+  const randomError = Math.random() > 0.8;
   if (randomError) {
     throw new Error("Something went terribly wrong with the fast cache");
   }

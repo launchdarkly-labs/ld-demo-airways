@@ -1,30 +1,18 @@
-import { airports } from "@/schema/schema";
-import { drizzle } from "drizzle-orm/postgres-js";
-import postgres from "postgres";
-import { Redis } from "ioredis";
 import { Airports } from "@/lib/airports";
 
 import { NextRequest, NextResponse } from "next/server";
 import { getServerClient } from "@/utils/ld-server";
-import { fetchFlightsFromFastCache } from "@/fastCache";
+import { fetchAirportsFromFastCache } from "@/fastCache";
+import { fetchAirportsFromRedis } from "@/db/redis";
+import Redis from "ioredis";
+import { fetchAirportsFromPostgres } from "@/db/postgres";
 
 export const dynamic = "force-dynamic";
-
-const pgConnectionString = process.env.DATABASE_URL;
-if (!pgConnectionString) {
-  throw new Error("DATABASE_URL is not set");
-}
-const pgClient = postgres(pgConnectionString);
-const redisClient = new Redis(process.env.REDIS_URL || "");
 
 export async function GET(request: NextRequest, response: NextResponse) {
   try {
     const ldClient = await getServerClient();
-    const context = {
-      kind: "user",
-      key: "jenn+" + Math.random().toString(36).substring(2, 5),
-      name: "jenn toggles",
-    };
+    const context = getFlagContext();
 
     const enableFastCache = await ldClient.variation(
       "enableFastCache",
@@ -33,29 +21,34 @@ export async function GET(request: NextRequest, response: NextResponse) {
     );
     if (enableFastCache) {
       console.log("Fetching data from FastCache");
-      const allAirports = await fetchFlightsFromFastCache();
+      const allAirports = await fetchAirportsFromFastCache();
       return Response.json({ allAirports });
     }
 
     const flightDb = await ldClient.variation("flightDb", context, false);
     if (flightDb) {
-      console.log("FlightDb is enabled. Fetching data from Postgres");
+      console.log("Fetching data from Postgres");
 
-      const db = drizzle(pgClient);
-      const allAirports = await db.select().from(airports);
-      return Response.json({ allAirports });
-    } else {
-      console.log("FlightDb is disabled. Fetching data from Redis.");
-
-      const airportsRedisJson = await redisClient.get("allAirports");
-      const allAirports = JSON.parse(airportsRedisJson!);
+      const allAirports = await fetchAirportsFromPostgres();
       return Response.json({ allAirports });
     }
+
+    console.log("Fetching data from Redis");
+    const allAirports = await fetchAirportsFromRedis();
+    return Response.json({ allAirports });
   } catch (error) {
     console.error(error);
     return new Response("Internal Server Error", { status: 500 });
   }
 }
+
+const getFlagContext = () => {
+  return {
+    kind: "user",
+    key: "jenn+" + Math.random().toString(36).substring(2, 5),
+    name: "jenn toggles",
+  };
+};
 
 export async function POST(request: NextRequest, response: NextResponse) {
   try {
