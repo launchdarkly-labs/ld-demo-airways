@@ -17,8 +17,8 @@ exporters:
     encoding: json
     headers:
       Authorization: ${env:LD_ACCESS_TOKEN}
-      project-key: toggle-airlines
-      environment-key: henry-dev
+      X-LaunchDarkly-Project: toggle-airlines
+      X-LaunchDarkly-Environment: henry-dev
     compression: none
 
 processors:

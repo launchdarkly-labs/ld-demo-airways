@@ -1,13 +1,18 @@
-import { init, LDClient, LDOptions } from "launchdarkly-node-server-sdk";
+import { init, LDClient } from "@launchdarkly/node-server-sdk";
+import { TracingHook } from "@launchdarkly/node-server-sdk-otel";
 
 export let ldClient: LDClient;
 
-const getServerClient = async (sdkKey: string, options?: LDOptions) => {
+const LD_SDK_KEY = process.env.LD_SERVER_KEY || "";
+
+const getServerClient = async () => {
   if (!ldClient) {
-    ldClient = init(sdkKey, options);
+    ldClient = init(LD_SDK_KEY, {
+      hooks: [new TracingHook()],
+    });
   }
+
   await ldClient.waitForInitialization();
-  console.log("LD Initialized.");
   return ldClient;
 };
 

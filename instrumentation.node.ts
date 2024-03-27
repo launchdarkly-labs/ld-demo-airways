@@ -8,26 +8,24 @@ import {
   TimedEvent,
 } from "@opentelemetry/sdk-trace-node";
 
-const eventMap: Record<string, TimedEvent> = {};
+const eventMap: Record<string, TimedEvent[]> = {};
 
 class Processor extends SimpleSpanProcessor {
   onEnd(span: ReadableSpan) {
     if (span.events.length) {
-      const featureFlagEvent = span.events.find(
+      const featureFlagEvents = span.events.filter(
         (e) => e.name === "feature_flag"
       );
-      if (featureFlagEvent) {
-        const parentSpanId = span.parentSpanId;
-        if (parentSpanId) {
-          eventMap[parentSpanId] = featureFlagEvent;
-        }
+      const parentSpanId = span.parentSpanId;
+      if (parentSpanId) {
+        eventMap[parentSpanId] = featureFlagEvents;
       }
     }
 
     if (!span.parentSpanId) {
-      const ffEvent = eventMap[span.spanContext().spanId];
-      if (ffEvent) {
-        span.events.push(ffEvent);
+      const ffEvents = eventMap[span.spanContext().spanId];
+      if (ffEvents) {
+        span.events.push(...ffEvents);
       }
     }
 
