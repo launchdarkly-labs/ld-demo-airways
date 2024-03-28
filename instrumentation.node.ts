@@ -37,7 +37,7 @@ const sdk = new NodeSDK({
   resource: new Resource({
     [SEMRESATTRS_SERVICE_NAME]: "ld-demo-airways",
   }),
-  spanProcessor: new Processor(new OTLPTraceExporter()),
+  spanProcessor: new SimpleSpanProcessor(new OTLPTraceExporter()),
 });
 
 sdk.start();

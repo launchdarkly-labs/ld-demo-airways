@@ -20,8 +20,20 @@ exporters:
       X-LaunchDarkly-Project: toggle-airlines
       X-LaunchDarkly-Environment: henry-dev
 
+  otlphttp/pipedream:
+    traces_endpoint: https://a628ef498514fa900ecde53de35bd062.m.pipedream.net
+    encoding: json
+    compression: none
+    headers:
+      Authorization: ${env:LD_ACCESS_TOKEN}
+      X-LaunchDarkly-Project: toggle-airlines
+      X-LaunchDarkly-Environment: henry-dev
+
 processors:
+  groupbytrace:
+
   batch:
+    timeout: 5s
 
 extensions:
   health_check:
@@ -31,8 +43,9 @@ service:
   pipelines:
     traces:
       receivers: [otlp]
-      processors: [batch]
-      exporters: [logging, otlp/jaeger, otlphttp/launchdarkly]
+      processors: [groupbytrace, batch]
+      exporters:
+        [logging, otlp/jaeger, otlphttp/launchdarkly, otlphttp/pipedream]
     metrics:
       receivers: [otlp]
       processors: [batch]
