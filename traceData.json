@@ -30,7 +30,7 @@
           {
             "key": "process.pid",
             "value": {
-              "intValue": "45370"
+              "intValue": "62236"
             }
           },
           {
@@ -100,13 +100,13 @@
           },
           "spans": [
             {
-              "traceId": "a7a9cc4ef571dd5c473d2e2b2fc4dd3b",
-              "spanId": "786224218a1df7bb",
-              "parentSpanId": "7c570db5fcdde841",
+              "traceId": "e512357d145ec2d2b43faa8a5ec3fbfd",
+              "spanId": "8523fadfc3dcb230",
+              "parentSpanId": "c3e4ef6398194b0b",
               "name": "resolve page components",
               "kind": 1,
-              "startTimeUnixNano": "1711623534342000000",
-              "endTimeUnixNano": "1711623534343593417",
+              "startTimeUnixNano": "1711626717985000000",
+              "endTimeUnixNano": "1711626717986199958",
               "attributes": [
                 {
                   "key": "next.span_name",
@@ -163,7 +163,323 @@
           {
             "key": "process.pid",
             "value": {
-              "intValue": "45370"
+              "intValue": "62236"
+            }
+          },
+          {
+            "key": "process.executable.name",
+            "value": {
+              "stringValue": "next-server"
+            }
+          },
+          {
+            "key": "process.executable.path",
+            "value": {
+              "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
+            }
+          },
+          {
+            "key": "process.command_args",
+            "value": {
+              "arrayValue": {
+                "values": [
+                  {
+                    "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
+                  },
+                  {
+                    "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "process.runtime.version",
+            "value": {
+              "stringValue": "18.17.1"
+            }
+          },
+          {
+            "key": "process.runtime.name",
+            "value": {
+              "stringValue": "nodejs"
+            }
+          },
+          {
+            "key": "process.runtime.description",
+            "value": {
+              "stringValue": "Node.js"
+            }
+          },
+          {
+            "key": "process.command",
+            "value": {
+              "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
+            }
+          },
+          {
+            "key": "process.owner",
+            "value": {
+              "stringValue": "henrybarrow"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "next.js",
+            "version": "0.0.1"
+          },
+          "spans": [
+            {
+              "traceId": "e512357d145ec2d2b43faa8a5ec3fbfd",
+              "spanId": "c3e4ef6398194b0b",
+              "parentSpanId": "",
+              "name": "GET /api/airports/route",
+              "kind": 2,
+              "startTimeUnixNano": "1711626717969000000",
+              "endTimeUnixNano": "1711626718023901042",
+              "attributes": [
+                {
+                  "key": "next.span_name",
+                  "value": {
+                    "stringValue": "GET /api/airports/route"
+                  }
+                },
+                {
+                  "key": "next.span_type",
+                  "value": {
+                    "stringValue": "BaseServer.handleRequest"
+                  }
+                },
+                {
+                  "key": "http.method",
+                  "value": {
+                    "stringValue": "GET"
+                  }
+                },
+                {
+                  "key": "http.target",
+                  "value": {
+                    "stringValue": "/api/airports"
+                  }
+                },
+                {
+                  "key": "http.status_code",
+                  "value": {
+                    "intValue": "200"
+                  }
+                },
+                {
+                  "key": "next.route",
+                  "value": {
+                    "stringValue": "/api/airports/route"
+                  }
+                },
+                {
+                  "key": "http.route",
+                  "value": {
+                    "stringValue": "/api/airports/route"
+                  }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "ld-demo-airways"
+            }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "nodejs"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.22.0"
+            }
+          },
+          {
+            "key": "process.pid",
+            "value": {
+              "intValue": "62236"
+            }
+          },
+          {
+            "key": "process.executable.name",
+            "value": {
+              "stringValue": "next-server"
+            }
+          },
+          {
+            "key": "process.executable.path",
+            "value": {
+              "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
+            }
+          },
+          {
+            "key": "process.command_args",
+            "value": {
+              "arrayValue": {
+                "values": [
+                  {
+                    "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
+                  },
+                  {
+                    "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "process.runtime.version",
+            "value": {
+              "stringValue": "18.17.1"
+            }
+          },
+          {
+            "key": "process.runtime.name",
+            "value": {
+              "stringValue": "nodejs"
+            }
+          },
+          {
+            "key": "process.runtime.description",
+            "value": {
+              "stringValue": "Node.js"
+            }
+          },
+          {
+            "key": "process.command",
+            "value": {
+              "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
+            }
+          },
+          {
+            "key": "process.owner",
+            "value": {
+              "stringValue": "henrybarrow"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "next.js",
+            "version": "0.0.1"
+          },
+          "spans": [
+            {
+              "traceId": "e512357d145ec2d2b43faa8a5ec3fbfd",
+              "spanId": "a404d5c5642f2207",
+              "parentSpanId": "c3e4ef6398194b0b",
+              "name": "executing api route (app) /api/airports/route",
+              "kind": 1,
+              "startTimeUnixNano": "1711626717989000000",
+              "endTimeUnixNano": "1711626718022191958",
+              "attributes": [
+                {
+                  "key": "next.span_name",
+                  "value": {
+                    "stringValue": "executing api route (app) /api/airports/route"
+                  }
+                },
+                {
+                  "key": "next.span_type",
+                  "value": {
+                    "stringValue": "AppRouteRouteHandlers.runHandler"
+                  }
+                },
+                {
+                  "key": "next.route",
+                  "value": {
+                    "stringValue": "/api/airports/route"
+                  }
+                }
+              ],
+              "events": [
+                {
+                  "timeUnixNano": "1711626717989549125",
+                  "name": "feature_flag",
+                  "attributes": [
+                    {
+                      "key": "feature_flag.key",
+                      "value": {
+                        "stringValue": "flightDb"
+                      }
+                    },
+                    {
+                      "key": "feature_flag.provider_name",
+                      "value": {
+                        "stringValue": "LaunchDarkly Tracing Hook"
+                      }
+                    },
+                    {
+                      "key": "feature_flag.context.key",
+                      "value": {
+                        "stringValue": "jenn+ygo"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "ld-demo-airways"
+            }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "nodejs"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.22.0"
+            }
+          },
+          {
+            "key": "process.pid",
+            "value": {
+              "intValue": "62236"
             }
           },
           {
@@ -232,16 +548,16 @@
           },
           "spans": [
             {
-              "traceId": "a7a9cc4ef571dd5c473d2e2b2fc4dd3b",
-              "spanId": "eb26abb6a3a4c221",
-              "parentSpanId": "3d58f39e685fdfbe",
+              "traceId": "e512357d145ec2d2b43faa8a5ec3fbfd",
+              "spanId": "745879cad74a7cac",
+              "parentSpanId": "a404d5c5642f2207",
               "name": "fetchAirportsFromRedis",
               "kind": 1,
-              "startTimeUnixNano": "1711623534356000000",
-              "endTimeUnixNano": "1711623534440224458",
+              "startTimeUnixNano": "1711626717990000000",
+              "endTimeUnixNano": "1711626718021438333",
               "events": [
                 {
-                  "timeUnixNano": "1711623534357396208",
+                  "timeUnixNano": "1711626717990314958",
                   "name": "feature_flag",
                   "attributes": [
                     {
@@ -259,7 +575,7 @@
                     {
                       "key": "feature_flag.context.key",
                       "value": {
-                        "stringValue": "jenn+y76"
+                        "stringValue": "jenn+3qc"
                       }
                     }
                   ]
@@ -301,7 +617,7 @@
           {
             "key": "process.pid",
             "value": {
-              "intValue": "45370"
+              "intValue": "62236"
             }
           },
           {
@@ -370,1693 +686,13 @@
           },
           "spans": [
             {
-              "traceId": "a7a9cc4ef571dd5c473d2e2b2fc4dd3b",
-              "spanId": "0fef7288eb57ba2f",
-              "parentSpanId": "eb26abb6a3a4c221",
+              "traceId": "e512357d145ec2d2b43faa8a5ec3fbfd",
+              "spanId": "d8a20a2a7eda8b79",
+              "parentSpanId": "745879cad74a7cac",
               "name": "fetchAirportsFromFastCache",
               "kind": 1,
-              "startTimeUnixNano": "1711623534357000000",
-              "endTimeUnixNano": "1711623534436667250",
-              "status": {}
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "resource": {
-        "attributes": [
-          {
-            "key": "service.name",
-            "value": {
-              "stringValue": "ld-demo-airways"
-            }
-          },
-          {
-            "key": "telemetry.sdk.language",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "telemetry.sdk.name",
-            "value": {
-              "stringValue": "opentelemetry"
-            }
-          },
-          {
-            "key": "telemetry.sdk.version",
-            "value": {
-              "stringValue": "1.22.0"
-            }
-          },
-          {
-            "key": "process.pid",
-            "value": {
-              "intValue": "45370"
-            }
-          },
-          {
-            "key": "process.executable.name",
-            "value": {
-              "stringValue": "next-server"
-            }
-          },
-          {
-            "key": "process.executable.path",
-            "value": {
-              "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-            }
-          },
-          {
-            "key": "process.command_args",
-            "value": {
-              "arrayValue": {
-                "values": [
-                  {
-                    "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-                  },
-                  {
-                    "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "key": "process.runtime.version",
-            "value": {
-              "stringValue": "18.17.1"
-            }
-          },
-          {
-            "key": "process.runtime.name",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "process.runtime.description",
-            "value": {
-              "stringValue": "Node.js"
-            }
-          },
-          {
-            "key": "process.command",
-            "value": {
-              "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-            }
-          },
-          {
-            "key": "process.owner",
-            "value": {
-              "stringValue": "henrybarrow"
-            }
-          }
-        ]
-      },
-      "scopeSpans": [
-        {
-          "scope": {
-            "name": "next.js",
-            "version": "0.0.1"
-          },
-          "spans": [
-            {
-              "traceId": "a7a9cc4ef571dd5c473d2e2b2fc4dd3b",
-              "spanId": "3d58f39e685fdfbe",
-              "parentSpanId": "7c570db5fcdde841",
-              "name": "executing api route (app) /api/airports/route",
-              "kind": 1,
-              "startTimeUnixNano": "1711623534352000000",
-              "endTimeUnixNano": "1711623534442460833",
-              "attributes": [
-                {
-                  "key": "next.span_name",
-                  "value": {
-                    "stringValue": "executing api route (app) /api/airports/route"
-                  }
-                },
-                {
-                  "key": "next.span_type",
-                  "value": {
-                    "stringValue": "AppRouteRouteHandlers.runHandler"
-                  }
-                },
-                {
-                  "key": "next.route",
-                  "value": {
-                    "stringValue": "/api/airports/route"
-                  }
-                }
-              ],
-              "events": [
-                {
-                  "timeUnixNano": "1711623534355131083",
-                  "name": "feature_flag",
-                  "attributes": [
-                    {
-                      "key": "feature_flag.key",
-                      "value": {
-                        "stringValue": "flightDb"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.provider_name",
-                      "value": {
-                        "stringValue": "LaunchDarkly Tracing Hook"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.context.key",
-                      "value": {
-                        "stringValue": "jenn+ce7"
-                      }
-                    }
-                  ]
-                }
-              ],
-              "status": {}
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "resource": {
-        "attributes": [
-          {
-            "key": "service.name",
-            "value": {
-              "stringValue": "ld-demo-airways"
-            }
-          },
-          {
-            "key": "telemetry.sdk.language",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "telemetry.sdk.name",
-            "value": {
-              "stringValue": "opentelemetry"
-            }
-          },
-          {
-            "key": "telemetry.sdk.version",
-            "value": {
-              "stringValue": "1.22.0"
-            }
-          },
-          {
-            "key": "process.pid",
-            "value": {
-              "intValue": "45370"
-            }
-          },
-          {
-            "key": "process.executable.name",
-            "value": {
-              "stringValue": "next-server"
-            }
-          },
-          {
-            "key": "process.executable.path",
-            "value": {
-              "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-            }
-          },
-          {
-            "key": "process.command_args",
-            "value": {
-              "arrayValue": {
-                "values": [
-                  {
-                    "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-                  },
-                  {
-                    "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "key": "process.runtime.version",
-            "value": {
-              "stringValue": "18.17.1"
-            }
-          },
-          {
-            "key": "process.runtime.name",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "process.runtime.description",
-            "value": {
-              "stringValue": "Node.js"
-            }
-          },
-          {
-            "key": "process.command",
-            "value": {
-              "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-            }
-          },
-          {
-            "key": "process.owner",
-            "value": {
-              "stringValue": "henrybarrow"
-            }
-          }
-        ]
-      },
-      "scopeSpans": [
-        {
-          "scope": {
-            "name": "next.js",
-            "version": "0.0.1"
-          },
-          "spans": [
-            {
-              "traceId": "a7a9cc4ef571dd5c473d2e2b2fc4dd3b",
-              "spanId": "7c570db5fcdde841",
-              "parentSpanId": "",
-              "name": "GET /api/airports/route",
-              "kind": 2,
-              "startTimeUnixNano": "1711623534327000000",
-              "endTimeUnixNano": "1711623534450341167",
-              "attributes": [
-                {
-                  "key": "next.span_name",
-                  "value": {
-                    "stringValue": "GET /api/airports/route"
-                  }
-                },
-                {
-                  "key": "next.span_type",
-                  "value": {
-                    "stringValue": "BaseServer.handleRequest"
-                  }
-                },
-                {
-                  "key": "http.method",
-                  "value": {
-                    "stringValue": "GET"
-                  }
-                },
-                {
-                  "key": "http.target",
-                  "value": {
-                    "stringValue": "/api/airports"
-                  }
-                },
-                {
-                  "key": "http.status_code",
-                  "value": {
-                    "intValue": "200"
-                  }
-                },
-                {
-                  "key": "next.route",
-                  "value": {
-                    "stringValue": "/api/airports/route"
-                  }
-                },
-                {
-                  "key": "http.route",
-                  "value": {
-                    "stringValue": "/api/airports/route"
-                  }
-                }
-              ],
-              "events": [
-                {
-                  "timeUnixNano": "1711623534355131083",
-                  "name": "feature_flag",
-                  "attributes": [
-                    {
-                      "key": "feature_flag.key",
-                      "value": {
-                        "stringValue": "flightDb"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.provider_name",
-                      "value": {
-                        "stringValue": "LaunchDarkly Tracing Hook"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.context.key",
-                      "value": {
-                        "stringValue": "jenn+ce7"
-                      }
-                    }
-                  ]
-                }
-              ],
-              "status": {}
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "resource": {
-        "attributes": [
-          {
-            "key": "service.name",
-            "value": {
-              "stringValue": "ld-demo-airways"
-            }
-          },
-          {
-            "key": "telemetry.sdk.language",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "telemetry.sdk.name",
-            "value": {
-              "stringValue": "opentelemetry"
-            }
-          },
-          {
-            "key": "telemetry.sdk.version",
-            "value": {
-              "stringValue": "1.22.0"
-            }
-          },
-          {
-            "key": "process.pid",
-            "value": {
-              "intValue": "45370"
-            }
-          },
-          {
-            "key": "process.executable.name",
-            "value": {
-              "stringValue": "next-server"
-            }
-          },
-          {
-            "key": "process.executable.path",
-            "value": {
-              "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-            }
-          },
-          {
-            "key": "process.command_args",
-            "value": {
-              "arrayValue": {
-                "values": [
-                  {
-                    "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-                  },
-                  {
-                    "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "key": "process.runtime.version",
-            "value": {
-              "stringValue": "18.17.1"
-            }
-          },
-          {
-            "key": "process.runtime.name",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "process.runtime.description",
-            "value": {
-              "stringValue": "Node.js"
-            }
-          },
-          {
-            "key": "process.command",
-            "value": {
-              "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-            }
-          },
-          {
-            "key": "process.owner",
-            "value": {
-              "stringValue": "henrybarrow"
-            }
-          }
-        ]
-      },
-      "scopeSpans": [
-        {
-          "scope": {
-            "name": "next.js",
-            "version": "0.0.1"
-          },
-          "spans": [
-            {
-              "traceId": "3dbc9ce74e642f32248466aecd8b574e",
-              "spanId": "35c2bdb9310a2592",
-              "parentSpanId": "a4a8007eea976afb",
-              "name": "resolve page components",
-              "kind": 1,
-              "startTimeUnixNano": "1711623534913000000",
-              "endTimeUnixNano": "1711623534913676833",
-              "attributes": [
-                {
-                  "key": "next.span_name",
-                  "value": {
-                    "stringValue": "resolve page components"
-                  }
-                },
-                {
-                  "key": "next.span_type",
-                  "value": {
-                    "stringValue": "NextNodeServer.findPageComponents"
-                  }
-                },
-                {
-                  "key": "next.route",
-                  "value": {
-                    "stringValue": "/api/airports"
-                  }
-                }
-              ],
-              "status": {}
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "resource": {
-        "attributes": [
-          {
-            "key": "service.name",
-            "value": {
-              "stringValue": "ld-demo-airways"
-            }
-          },
-          {
-            "key": "telemetry.sdk.language",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "telemetry.sdk.name",
-            "value": {
-              "stringValue": "opentelemetry"
-            }
-          },
-          {
-            "key": "telemetry.sdk.version",
-            "value": {
-              "stringValue": "1.22.0"
-            }
-          },
-          {
-            "key": "process.pid",
-            "value": {
-              "intValue": "45370"
-            }
-          },
-          {
-            "key": "process.executable.name",
-            "value": {
-              "stringValue": "next-server"
-            }
-          },
-          {
-            "key": "process.executable.path",
-            "value": {
-              "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-            }
-          },
-          {
-            "key": "process.command_args",
-            "value": {
-              "arrayValue": {
-                "values": [
-                  {
-                    "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-                  },
-                  {
-                    "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "key": "process.runtime.version",
-            "value": {
-              "stringValue": "18.17.1"
-            }
-          },
-          {
-            "key": "process.runtime.name",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "process.runtime.description",
-            "value": {
-              "stringValue": "Node.js"
-            }
-          },
-          {
-            "key": "process.command",
-            "value": {
-              "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-            }
-          },
-          {
-            "key": "process.owner",
-            "value": {
-              "stringValue": "henrybarrow"
-            }
-          }
-        ]
-      },
-      "scopeSpans": [
-        {
-          "scope": {
-            "name": "next.js",
-            "version": "0.0.1"
-          },
-          "spans": [
-            {
-              "traceId": "3dbc9ce74e642f32248466aecd8b574e",
-              "spanId": "ceac0594c10f4a7d",
-              "parentSpanId": "a4a8007eea976afb",
-              "name": "executing api route (app) /api/airports/route",
-              "kind": 1,
-              "startTimeUnixNano": "1711623534917000000",
-              "endTimeUnixNano": "1711623534936686333",
-              "attributes": [
-                {
-                  "key": "next.span_name",
-                  "value": {
-                    "stringValue": "executing api route (app) /api/airports/route"
-                  }
-                },
-                {
-                  "key": "next.span_type",
-                  "value": {
-                    "stringValue": "AppRouteRouteHandlers.runHandler"
-                  }
-                },
-                {
-                  "key": "next.route",
-                  "value": {
-                    "stringValue": "/api/airports/route"
-                  }
-                }
-              ],
-              "events": [
-                {
-                  "timeUnixNano": "1711623534918909667",
-                  "name": "feature_flag",
-                  "attributes": [
-                    {
-                      "key": "feature_flag.key",
-                      "value": {
-                        "stringValue": "flightDb"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.provider_name",
-                      "value": {
-                        "stringValue": "LaunchDarkly Tracing Hook"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.context.key",
-                      "value": {
-                        "stringValue": "jenn+iu2"
-                      }
-                    }
-                  ]
-                }
-              ],
-              "status": {}
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "resource": {
-        "attributes": [
-          {
-            "key": "service.name",
-            "value": {
-              "stringValue": "ld-demo-airways"
-            }
-          },
-          {
-            "key": "telemetry.sdk.language",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "telemetry.sdk.name",
-            "value": {
-              "stringValue": "opentelemetry"
-            }
-          },
-          {
-            "key": "telemetry.sdk.version",
-            "value": {
-              "stringValue": "1.22.0"
-            }
-          },
-          {
-            "key": "process.pid",
-            "value": {
-              "intValue": "45370"
-            }
-          },
-          {
-            "key": "process.executable.name",
-            "value": {
-              "stringValue": "next-server"
-            }
-          },
-          {
-            "key": "process.executable.path",
-            "value": {
-              "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-            }
-          },
-          {
-            "key": "process.command_args",
-            "value": {
-              "arrayValue": {
-                "values": [
-                  {
-                    "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-                  },
-                  {
-                    "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "key": "process.runtime.version",
-            "value": {
-              "stringValue": "18.17.1"
-            }
-          },
-          {
-            "key": "process.runtime.name",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "process.runtime.description",
-            "value": {
-              "stringValue": "Node.js"
-            }
-          },
-          {
-            "key": "process.command",
-            "value": {
-              "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-            }
-          },
-          {
-            "key": "process.owner",
-            "value": {
-              "stringValue": "henrybarrow"
-            }
-          }
-        ]
-      },
-      "scopeSpans": [
-        {
-          "scope": {
-            "name": "next.js",
-            "version": "0.0.1"
-          },
-          "spans": [
-            {
-              "traceId": "3dbc9ce74e642f32248466aecd8b574e",
-              "spanId": "a4a8007eea976afb",
-              "parentSpanId": "",
-              "name": "GET /api/airports/route",
-              "kind": 2,
-              "startTimeUnixNano": "1711623534899000000",
-              "endTimeUnixNano": "1711623534937952000",
-              "attributes": [
-                {
-                  "key": "next.span_name",
-                  "value": {
-                    "stringValue": "GET /api/airports/route"
-                  }
-                },
-                {
-                  "key": "next.span_type",
-                  "value": {
-                    "stringValue": "BaseServer.handleRequest"
-                  }
-                },
-                {
-                  "key": "http.method",
-                  "value": {
-                    "stringValue": "GET"
-                  }
-                },
-                {
-                  "key": "http.target",
-                  "value": {
-                    "stringValue": "/api/airports"
-                  }
-                },
-                {
-                  "key": "http.status_code",
-                  "value": {
-                    "intValue": "500"
-                  }
-                },
-                {
-                  "key": "next.route",
-                  "value": {
-                    "stringValue": "/api/airports/route"
-                  }
-                },
-                {
-                  "key": "http.route",
-                  "value": {
-                    "stringValue": "/api/airports/route"
-                  }
-                }
-              ],
-              "events": [
-                {
-                  "timeUnixNano": "1711623534918909667",
-                  "name": "feature_flag",
-                  "attributes": [
-                    {
-                      "key": "feature_flag.key",
-                      "value": {
-                        "stringValue": "flightDb"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.provider_name",
-                      "value": {
-                        "stringValue": "LaunchDarkly Tracing Hook"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.context.key",
-                      "value": {
-                        "stringValue": "jenn+iu2"
-                      }
-                    }
-                  ]
-                }
-              ],
-              "status": {}
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "resource": {
-        "attributes": [
-          {
-            "key": "service.name",
-            "value": {
-              "stringValue": "ld-demo-airways"
-            }
-          },
-          {
-            "key": "telemetry.sdk.language",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "telemetry.sdk.name",
-            "value": {
-              "stringValue": "opentelemetry"
-            }
-          },
-          {
-            "key": "telemetry.sdk.version",
-            "value": {
-              "stringValue": "1.22.0"
-            }
-          },
-          {
-            "key": "process.pid",
-            "value": {
-              "intValue": "45370"
-            }
-          },
-          {
-            "key": "process.executable.name",
-            "value": {
-              "stringValue": "next-server"
-            }
-          },
-          {
-            "key": "process.executable.path",
-            "value": {
-              "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-            }
-          },
-          {
-            "key": "process.command_args",
-            "value": {
-              "arrayValue": {
-                "values": [
-                  {
-                    "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-                  },
-                  {
-                    "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "key": "process.runtime.version",
-            "value": {
-              "stringValue": "18.17.1"
-            }
-          },
-          {
-            "key": "process.runtime.name",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "process.runtime.description",
-            "value": {
-              "stringValue": "Node.js"
-            }
-          },
-          {
-            "key": "process.command",
-            "value": {
-              "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-            }
-          },
-          {
-            "key": "process.owner",
-            "value": {
-              "stringValue": "henrybarrow"
-            }
-          }
-        ]
-      },
-      "scopeSpans": [
-        {
-          "scope": {
-            "name": "redis"
-          },
-          "spans": [
-            {
-              "traceId": "3dbc9ce74e642f32248466aecd8b574e",
-              "spanId": "f8865d784dd24661",
-              "parentSpanId": "ceac0594c10f4a7d",
-              "name": "fetchAirportsFromRedis",
-              "kind": 1,
-              "startTimeUnixNano": "1711623534919000000",
-              "endTimeUnixNano": "1711623534930319667",
-              "events": [
-                {
-                  "timeUnixNano": "1711623534919633084",
-                  "name": "feature_flag",
-                  "attributes": [
-                    {
-                      "key": "feature_flag.key",
-                      "value": {
-                        "stringValue": "enableFastCache"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.provider_name",
-                      "value": {
-                        "stringValue": "LaunchDarkly Tracing Hook"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.context.key",
-                      "value": {
-                        "stringValue": "jenn+hld"
-                      }
-                    }
-                  ]
-                }
-              ],
-              "status": {}
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "resource": {
-        "attributes": [
-          {
-            "key": "service.name",
-            "value": {
-              "stringValue": "ld-demo-airways"
-            }
-          },
-          {
-            "key": "telemetry.sdk.language",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "telemetry.sdk.name",
-            "value": {
-              "stringValue": "opentelemetry"
-            }
-          },
-          {
-            "key": "telemetry.sdk.version",
-            "value": {
-              "stringValue": "1.22.0"
-            }
-          },
-          {
-            "key": "process.pid",
-            "value": {
-              "intValue": "45370"
-            }
-          },
-          {
-            "key": "process.executable.name",
-            "value": {
-              "stringValue": "next-server"
-            }
-          },
-          {
-            "key": "process.executable.path",
-            "value": {
-              "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-            }
-          },
-          {
-            "key": "process.command_args",
-            "value": {
-              "arrayValue": {
-                "values": [
-                  {
-                    "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-                  },
-                  {
-                    "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "key": "process.runtime.version",
-            "value": {
-              "stringValue": "18.17.1"
-            }
-          },
-          {
-            "key": "process.runtime.name",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "process.runtime.description",
-            "value": {
-              "stringValue": "Node.js"
-            }
-          },
-          {
-            "key": "process.command",
-            "value": {
-              "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-            }
-          },
-          {
-            "key": "process.owner",
-            "value": {
-              "stringValue": "henrybarrow"
-            }
-          }
-        ]
-      },
-      "scopeSpans": [
-        {
-          "scope": {
-            "name": "next.js",
-            "version": "0.0.1"
-          },
-          "spans": [
-            {
-              "traceId": "0072a8204d72228ae4670b52de2822ee",
-              "spanId": "a137a3369f609dc0",
-              "parentSpanId": "1876c3f00817cdcd",
-              "name": "resolve page components",
-              "kind": 1,
-              "startTimeUnixNano": "1711623536437000000",
-              "endTimeUnixNano": "1711623536437778000",
-              "attributes": [
-                {
-                  "key": "next.span_name",
-                  "value": {
-                    "stringValue": "resolve page components"
-                  }
-                },
-                {
-                  "key": "next.span_type",
-                  "value": {
-                    "stringValue": "NextNodeServer.findPageComponents"
-                  }
-                },
-                {
-                  "key": "next.route",
-                  "value": {
-                    "stringValue": "/api/airports"
-                  }
-                }
-              ],
-              "status": {}
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "resource": {
-        "attributes": [
-          {
-            "key": "service.name",
-            "value": {
-              "stringValue": "ld-demo-airways"
-            }
-          },
-          {
-            "key": "telemetry.sdk.language",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "telemetry.sdk.name",
-            "value": {
-              "stringValue": "opentelemetry"
-            }
-          },
-          {
-            "key": "telemetry.sdk.version",
-            "value": {
-              "stringValue": "1.22.0"
-            }
-          },
-          {
-            "key": "process.pid",
-            "value": {
-              "intValue": "45370"
-            }
-          },
-          {
-            "key": "process.executable.name",
-            "value": {
-              "stringValue": "next-server"
-            }
-          },
-          {
-            "key": "process.executable.path",
-            "value": {
-              "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-            }
-          },
-          {
-            "key": "process.command_args",
-            "value": {
-              "arrayValue": {
-                "values": [
-                  {
-                    "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-                  },
-                  {
-                    "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "key": "process.runtime.version",
-            "value": {
-              "stringValue": "18.17.1"
-            }
-          },
-          {
-            "key": "process.runtime.name",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "process.runtime.description",
-            "value": {
-              "stringValue": "Node.js"
-            }
-          },
-          {
-            "key": "process.command",
-            "value": {
-              "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-            }
-          },
-          {
-            "key": "process.owner",
-            "value": {
-              "stringValue": "henrybarrow"
-            }
-          }
-        ]
-      },
-      "scopeSpans": [
-        {
-          "scope": {
-            "name": "fastCache"
-          },
-          "spans": [
-            {
-              "traceId": "0072a8204d72228ae4670b52de2822ee",
-              "spanId": "3765a001c45ebae1",
-              "parentSpanId": "0f9ebbd5b47a65fb",
-              "name": "fetchAirportsFromFastCache",
-              "kind": 1,
-              "startTimeUnixNano": "1711623536444000000",
-              "endTimeUnixNano": "1711623536471872250",
-              "status": {}
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "resource": {
-        "attributes": [
-          {
-            "key": "service.name",
-            "value": {
-              "stringValue": "ld-demo-airways"
-            }
-          },
-          {
-            "key": "telemetry.sdk.language",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "telemetry.sdk.name",
-            "value": {
-              "stringValue": "opentelemetry"
-            }
-          },
-          {
-            "key": "telemetry.sdk.version",
-            "value": {
-              "stringValue": "1.22.0"
-            }
-          },
-          {
-            "key": "process.pid",
-            "value": {
-              "intValue": "45370"
-            }
-          },
-          {
-            "key": "process.executable.name",
-            "value": {
-              "stringValue": "next-server"
-            }
-          },
-          {
-            "key": "process.executable.path",
-            "value": {
-              "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-            }
-          },
-          {
-            "key": "process.command_args",
-            "value": {
-              "arrayValue": {
-                "values": [
-                  {
-                    "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-                  },
-                  {
-                    "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "key": "process.runtime.version",
-            "value": {
-              "stringValue": "18.17.1"
-            }
-          },
-          {
-            "key": "process.runtime.name",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "process.runtime.description",
-            "value": {
-              "stringValue": "Node.js"
-            }
-          },
-          {
-            "key": "process.command",
-            "value": {
-              "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-            }
-          },
-          {
-            "key": "process.owner",
-            "value": {
-              "stringValue": "henrybarrow"
-            }
-          }
-        ]
-      },
-      "scopeSpans": [
-        {
-          "scope": {
-            "name": "redis"
-          },
-          "spans": [
-            {
-              "traceId": "0072a8204d72228ae4670b52de2822ee",
-              "spanId": "0f9ebbd5b47a65fb",
-              "parentSpanId": "4554b8f6a34b6af2",
-              "name": "fetchAirportsFromRedis",
-              "kind": 1,
-              "startTimeUnixNano": "1711623536444000000",
-              "endTimeUnixNano": "1711623536473917834",
-              "events": [
-                {
-                  "timeUnixNano": "1711623536444529584",
-                  "name": "feature_flag",
-                  "attributes": [
-                    {
-                      "key": "feature_flag.key",
-                      "value": {
-                        "stringValue": "enableFastCache"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.provider_name",
-                      "value": {
-                        "stringValue": "LaunchDarkly Tracing Hook"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.context.key",
-                      "value": {
-                        "stringValue": "jenn+iht"
-                      }
-                    }
-                  ]
-                }
-              ],
-              "status": {}
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "resource": {
-        "attributes": [
-          {
-            "key": "service.name",
-            "value": {
-              "stringValue": "ld-demo-airways"
-            }
-          },
-          {
-            "key": "telemetry.sdk.language",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "telemetry.sdk.name",
-            "value": {
-              "stringValue": "opentelemetry"
-            }
-          },
-          {
-            "key": "telemetry.sdk.version",
-            "value": {
-              "stringValue": "1.22.0"
-            }
-          },
-          {
-            "key": "process.pid",
-            "value": {
-              "intValue": "45370"
-            }
-          },
-          {
-            "key": "process.executable.name",
-            "value": {
-              "stringValue": "next-server"
-            }
-          },
-          {
-            "key": "process.executable.path",
-            "value": {
-              "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-            }
-          },
-          {
-            "key": "process.command_args",
-            "value": {
-              "arrayValue": {
-                "values": [
-                  {
-                    "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-                  },
-                  {
-                    "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "key": "process.runtime.version",
-            "value": {
-              "stringValue": "18.17.1"
-            }
-          },
-          {
-            "key": "process.runtime.name",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "process.runtime.description",
-            "value": {
-              "stringValue": "Node.js"
-            }
-          },
-          {
-            "key": "process.command",
-            "value": {
-              "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-            }
-          },
-          {
-            "key": "process.owner",
-            "value": {
-              "stringValue": "henrybarrow"
-            }
-          }
-        ]
-      },
-      "scopeSpans": [
-        {
-          "scope": {
-            "name": "next.js",
-            "version": "0.0.1"
-          },
-          "spans": [
-            {
-              "traceId": "0072a8204d72228ae4670b52de2822ee",
-              "spanId": "1876c3f00817cdcd",
-              "parentSpanId": "",
-              "name": "GET /api/airports/route",
-              "kind": 2,
-              "startTimeUnixNano": "1711623536424000000",
-              "endTimeUnixNano": "1711623536478493208",
-              "attributes": [
-                {
-                  "key": "next.span_name",
-                  "value": {
-                    "stringValue": "GET /api/airports/route"
-                  }
-                },
-                {
-                  "key": "next.span_type",
-                  "value": {
-                    "stringValue": "BaseServer.handleRequest"
-                  }
-                },
-                {
-                  "key": "http.method",
-                  "value": {
-                    "stringValue": "GET"
-                  }
-                },
-                {
-                  "key": "http.target",
-                  "value": {
-                    "stringValue": "/api/airports"
-                  }
-                },
-                {
-                  "key": "http.status_code",
-                  "value": {
-                    "intValue": "200"
-                  }
-                },
-                {
-                  "key": "next.route",
-                  "value": {
-                    "stringValue": "/api/airports/route"
-                  }
-                },
-                {
-                  "key": "http.route",
-                  "value": {
-                    "stringValue": "/api/airports/route"
-                  }
-                }
-              ],
-              "events": [
-                {
-                  "timeUnixNano": "1711623536443542333",
-                  "name": "feature_flag",
-                  "attributes": [
-                    {
-                      "key": "feature_flag.key",
-                      "value": {
-                        "stringValue": "flightDb"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.provider_name",
-                      "value": {
-                        "stringValue": "LaunchDarkly Tracing Hook"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.context.key",
-                      "value": {
-                        "stringValue": "jenn+9vc"
-                      }
-                    }
-                  ]
-                }
-              ],
-              "status": {}
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "resource": {
-        "attributes": [
-          {
-            "key": "service.name",
-            "value": {
-              "stringValue": "ld-demo-airways"
-            }
-          },
-          {
-            "key": "telemetry.sdk.language",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "telemetry.sdk.name",
-            "value": {
-              "stringValue": "opentelemetry"
-            }
-          },
-          {
-            "key": "telemetry.sdk.version",
-            "value": {
-              "stringValue": "1.22.0"
-            }
-          },
-          {
-            "key": "process.pid",
-            "value": {
-              "intValue": "45370"
-            }
-          },
-          {
-            "key": "process.executable.name",
-            "value": {
-              "stringValue": "next-server"
-            }
-          },
-          {
-            "key": "process.executable.path",
-            "value": {
-              "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-            }
-          },
-          {
-            "key": "process.command_args",
-            "value": {
-              "arrayValue": {
-                "values": [
-                  {
-                    "stringValue": "/Users/henrybarrow/.nvm/versions/node/v18.17.1/bin/node"
-                  },
-                  {
-                    "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "key": "process.runtime.version",
-            "value": {
-              "stringValue": "18.17.1"
-            }
-          },
-          {
-            "key": "process.runtime.name",
-            "value": {
-              "stringValue": "nodejs"
-            }
-          },
-          {
-            "key": "process.runtime.description",
-            "value": {
-              "stringValue": "Node.js"
-            }
-          },
-          {
-            "key": "process.command",
-            "value": {
-              "stringValue": "/Users/henrybarrow/code/launchdarkly/ld-demo-airways/node_modules/next/dist/server/lib/start-server.js"
-            }
-          },
-          {
-            "key": "process.owner",
-            "value": {
-              "stringValue": "henrybarrow"
-            }
-          }
-        ]
-      },
-      "scopeSpans": [
-        {
-          "scope": {
-            "name": "next.js",
-            "version": "0.0.1"
-          },
-          "spans": [
-            {
-              "traceId": "0072a8204d72228ae4670b52de2822ee",
-              "spanId": "4554b8f6a34b6af2",
-              "parentSpanId": "1876c3f00817cdcd",
-              "name": "executing api route (app) /api/airports/route",
-              "kind": 1,
-              "startTimeUnixNano": "1711623536443000000",
-              "endTimeUnixNano": "1711623536475429167",
-              "attributes": [
-                {
-                  "key": "next.span_name",
-                  "value": {
-                    "stringValue": "executing api route (app) /api/airports/route"
-                  }
-                },
-                {
-                  "key": "next.span_type",
-                  "value": {
-                    "stringValue": "AppRouteRouteHandlers.runHandler"
-                  }
-                },
-                {
-                  "key": "next.route",
-                  "value": {
-                    "stringValue": "/api/airports/route"
-                  }
-                }
-              ],
-              "events": [
-                {
-                  "timeUnixNano": "1711623536443542333",
-                  "name": "feature_flag",
-                  "attributes": [
-                    {
-                      "key": "feature_flag.key",
-                      "value": {
-                        "stringValue": "flightDb"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.provider_name",
-                      "value": {
-                        "stringValue": "LaunchDarkly Tracing Hook"
-                      }
-                    },
-                    {
-                      "key": "feature_flag.context.key",
-                      "value": {
-                        "stringValue": "jenn+9vc"
-                      }
-                    }
-                  ]
-                }
-              ],
+              "startTimeUnixNano": "1711626717990000000",
+              "endTimeUnixNano": "1711626718020326875",
               "status": {}
             }
           ]
