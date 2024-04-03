@@ -2,27 +2,27 @@ import { fetchAirportsFromFastCache } from "@/fastCache";
 import { ldClient } from "@/utils/ld-server/serverClient";
 import { Span, trace } from "@opentelemetry/api";
 import { Redis } from "ioredis";
+import { LDContext } from "launchdarkly-node-server-sdk";
 
 const redisClient = new Redis(process.env.REDIS_URL || "");
 
 const tracer = trace.getTracer("redis");
 
-export const fetchAirportsFromRedis = async () => {
+export const fetchAirportsFromRedis = async (flagContext: LDContext) => {
   return tracer.startActiveSpan(
     "fetchAirportsFromRedis",
     async (span: Span) => {
       try {
         // First check to see if we should use FastCache
-        const context = getFlagContext();
         const enableFastCache = await ldClient.boolVariation(
           "enableFastCache",
-          context,
+          flagContext,
           false
         );
         if (enableFastCache) {
           console.log("Fetching data from FastCache");
           const allAirports = await fetchAirportsFromFastCache();
-          return Response.json({ allAirports });
+          return allAirports;
         }
 
         const airportsRedisJson = await redisClient.get("allAirports");
@@ -33,12 +33,4 @@ export const fetchAirportsFromRedis = async () => {
       }
     }
   );
-};
-
-const getFlagContext = () => {
-  return {
-    kind: "user",
-    key: "jenn+" + Math.random().toString(36).substring(2, 5),
-    name: "jenn toggles",
-  };
 };

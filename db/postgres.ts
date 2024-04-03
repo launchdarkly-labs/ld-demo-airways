@@ -4,6 +4,7 @@ import { drizzle } from "drizzle-orm/postgres-js";
 import { trace } from "@opentelemetry/api";
 import { fetchAirportsFromFastCache } from "@/fastCache";
 import { ldClient } from "@/utils/ld-server/serverClient";
+import { LDContext } from "launchdarkly-node-server-sdk";
 
 const tracer = trace.getTracer("postgres");
 
@@ -13,36 +14,30 @@ if (!pgConnectionString) {
 }
 const pgClient = postgres(pgConnectionString);
 
-export const fetchAirportsFromPostgres = async () => {
+export const fetchAirportsFromPostgres = async (flagContext: LDContext) => {
   return tracer.startActiveSpan("fetchAirportsFromPostgres", async (span) => {
-    // First check to see if we should use FastCache
-    const context = getFlagContext();
-    const enableFastCache = await ldClient.boolVariation(
-      "enableFastCache",
-      context,
-      false
-    );
-    if (enableFastCache) {
-      console.log("Fetching data from FastCache");
-      const allAirports = await fetchAirportsFromFastCache();
-      return Response.json({ allAirports });
+    try {
+      // First check to see if we should use FastCache
+      const enableFastCache = await ldClient.boolVariation(
+        "enableFastCache",
+        flagContext,
+        false
+      );
+      if (enableFastCache) {
+        console.log("Fetching data from FastCache");
+        const allAirports = await fetchAirportsFromFastCache();
+        return allAirports;
+      }
+
+      // sleep for 150ms
+      await new Promise((resolve) => setTimeout(resolve, 150));
+
+      const db = drizzle(pgClient);
+      const allAirports = await db.select().from(airports);
+
+      return allAirports;
+    } finally {
+      span.end();
     }
-
-    // sleep for 150ms
-    await new Promise((resolve) => setTimeout(resolve, 150));
-
-    const db = drizzle(pgClient);
-    const allAirports = await db.select().from(airports);
-
-    span.end();
-    return allAirports;
   });
-};
-
-const getFlagContext = () => {
-  return {
-    kind: "user",
-    key: "jenn+" + Math.random().toString(36).substring(2, 5),
-    name: "jenn toggles",
-  };
 };

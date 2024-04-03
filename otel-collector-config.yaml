@@ -55,18 +55,13 @@ service:
   pipelines:
     traces/ld:
       receivers: [otlp]
-      processors:
-        [
-          filter/launchdarkly-spanevents,
-          filter/launchdarkly,
-          groupbytrace,
-          batch,
-        ]
-      exporters: [logging, otlphttp/launchdarkly, otlphttp/pipedream]
-    traces/jaeger:
-      receivers: [otlp]
-      processors: [filter/launchdarkly, batch]
-      exporters: [logging, otlp/jaeger]
+      processors: [filter/launchdarkly, groupbytrace, batch]
+      exporters:
+        [logging, otlphttp/launchdarkly, otlp/jaeger, otlphttp/pipedream]
+    # traces/jaeger:
+    #   receivers: [otlp]
+    #   processors: [filter/launchdarkly, batch]
+    #   exporters: [logging, otlp/jaeger]
     metrics:
       receivers: [otlp]
       processors: [batch]

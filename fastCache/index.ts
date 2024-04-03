@@ -151,15 +151,18 @@ const AIRPORTS = [
 
 export const fetchAirportsFromFastCache = async () => {
   return tracer.startActiveSpan("fetchAirportsFromFastCache", async (span) => {
-    const randomSleep = Math.floor(Math.random() * 120);
-    await new Promise((resolve) => setTimeout(resolve, randomSleep));
+    try {
+      const randomSleep = Math.floor(Math.random() * 120);
+      await new Promise((resolve) => setTimeout(resolve, randomSleep));
 
-    const randomError = Math.random() > 0.8;
-    if (randomError) {
-      throw new Error("Something went terribly wrong with the fast cache");
+      const randomError = Math.random() > 0.8;
+      if (randomError) {
+        throw new Error("Something went terribly wrong with the fast cache");
+      }
+
+      return AIRPORTS;
+    } finally {
+      span.end();
     }
-
-    span.end();
-    return AIRPORTS;
   });
 };

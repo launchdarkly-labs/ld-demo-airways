@@ -19,12 +19,12 @@ export async function GET(request: NextRequest, response: NextResponse) {
     if (flightDb) {
       console.log("Fetching data from Postgres");
 
-      const allAirports = await fetchAirportsFromPostgres();
+      const allAirports = await fetchAirportsFromPostgres(context);
       return Response.json({ allAirports });
     }
 
     console.log("Fetching data from Redis");
-    const allAirports = await fetchAirportsFromRedis();
+    const allAirports = await fetchAirportsFromRedis(context);
     return Response.json({ allAirports });
   } catch (error) {
     console.error(error);
