@@ -31,9 +31,21 @@ exporters:
 
 processors:
   groupbytrace:
+    wait_duration: 5s
+
+  filter/launchdarkly-spanevents:
+    error_mode: ignore
+    traces:
+      spanevent:
+        - 'not (name == "feature_flag" or name == "exception")'
+
+  filter/launchdarkly:
+    error_mode: ignore
+    traces:
+      span:
+        - 'not (attributes["http.route"] != nil or Len(events) > 0)'
 
   batch:
-    timeout: 5s
 
 extensions:
   health_check:
@@ -41,11 +53,20 @@ extensions:
 service:
   extensions: [health_check]
   pipelines:
-    traces:
+    traces/ld:
       receivers: [otlp]
-      processors: [groupbytrace, batch]
-      exporters:
-        [logging, otlp/jaeger, otlphttp/launchdarkly, otlphttp/pipedream]
+      processors:
+        [
+          filter/launchdarkly-spanevents,
+          filter/launchdarkly,
+          groupbytrace,
+          batch,
+        ]
+      exporters: [logging, otlphttp/launchdarkly, otlphttp/pipedream]
+    traces/jaeger:
+      receivers: [otlp]
+      processors: [filter/launchdarkly, batch]
+      exporters: [logging, otlp/jaeger]
     metrics:
       receivers: [otlp]
       processors: [batch]
