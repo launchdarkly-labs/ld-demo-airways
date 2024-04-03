@@ -20,18 +20,9 @@ exporters:
       X-LaunchDarkly-Project: toggle-airlines
       X-LaunchDarkly-Environment: henry-dev
 
-  otlphttp/pipedream:
-    traces_endpoint: https://a628ef498514fa900ecde53de35bd062.m.pipedream.net
-    encoding: json
-    compression: none
-    headers:
-      Authorization: ${env:LD_ACCESS_TOKEN}
-      X-LaunchDarkly-Project: toggle-airlines
-      X-LaunchDarkly-Environment: henry-dev
-
 processors:
   groupbytrace:
-    wait_duration: 5s
+    wait_duration: 3s
 
   filter/launchdarkly-spanevents:
     error_mode: ignore
@@ -39,7 +30,7 @@ processors:
       spanevent:
         - 'not (name == "feature_flag" or name == "exception")'
 
-  filter/launchdarkly:
+  filter/launchdarkly-spans:
     error_mode: ignore
     traces:
       span:
@@ -55,13 +46,14 @@ service:
   pipelines:
     traces/ld:
       receivers: [otlp]
-      processors: [filter/launchdarkly, groupbytrace, batch]
-      exporters:
-        [logging, otlphttp/launchdarkly, otlp/jaeger, otlphttp/pipedream]
-    # traces/jaeger:
-    #   receivers: [otlp]
-    #   processors: [filter/launchdarkly, batch]
-    #   exporters: [logging, otlp/jaeger]
+      processors:
+        [
+          filter/launchdarkly-spanevents,
+          filter/launchdarkly-spans,
+          groupbytrace,
+          batch,
+        ]
+      exporters: [logging, otlphttp/launchdarkly, otlp/jaeger]
     metrics:
       receivers: [otlp]
       processors: [batch]

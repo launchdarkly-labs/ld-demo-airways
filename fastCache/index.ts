@@ -155,6 +155,8 @@ export const fetchAirportsFromFastCache = async () => {
       const randomSleep = Math.floor(Math.random() * 120);
       await new Promise((resolve) => setTimeout(resolve, randomSleep));
 
+      span.addEvent("Done sleeping", { sleepTime: randomSleep });
+
       const randomError = Math.random() > 0.8;
       if (randomError) {
         throw new Error("Something went terribly wrong with the fast cache");
