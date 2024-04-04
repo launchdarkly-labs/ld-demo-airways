@@ -9,6 +9,9 @@ const getServerClient = async () => {
   if (!ldClient) {
     ldClient = init(LD_SDK_KEY, {
       hooks: [new TracingHook()],
+      streamUri: 'https://stream-stg.launchdarkly.com',
+      baseUri: 'https://sdk-stg.launchdarkly.com',
+      eventsUri: 'https://events-stg.launchdarkly.com',
     });
   }
 
