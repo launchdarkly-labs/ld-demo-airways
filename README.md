@@ -26,15 +26,7 @@ They've undertaken the path to modernization, across everything from the databas
 
 ## Setup 
 
-These values are in the internal Confluence
-
-```bash 
-NEXT_PUBLIC_LD_CLIENT_KEY='<LaunchDarkly Client SDK Key>'
-LD_SERVER_KEY='<LaunchDarkly Server SDK Key>'
-LD_ACCESS_TOKEN='<LaunchDarkly Access Token with write permissions>'
-DATABASE_URL='<database URL for PostgreSQL database>'
-REDIS_URL='<database URL for Redis database>'
-```
+Create a .env.local file from the .env.sample and fill in your own values.
 
 ## The interesting bits 
 

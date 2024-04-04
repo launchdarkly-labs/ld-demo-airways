@@ -1,6 +1,6 @@
 'use client'
 import { useLDClient } from "launchdarkly-react-client-sdk";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const LoginContext = createContext();

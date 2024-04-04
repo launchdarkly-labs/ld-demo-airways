@@ -7,6 +7,9 @@ async function initialize() {
   console.log("Initializing with hooks");
   const client = LaunchDarkly.init(SDK_KEY, {
     hooks: [new TracingHook({ spans: true })],
+    streamUri: 'https://stream-stg.launchdarkly.com',
+    baseUri: 'https://sdk-stg.launchdarkly.com',
+    eventsUri: 'https://events-stg.launchdarkly.com',
   });
   globalThis.LaunchDarklyServerClient = await client.waitForInitialization();
 

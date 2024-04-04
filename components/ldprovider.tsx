@@ -10,7 +10,6 @@ export default function AsyncLDProvider({
 }: {
   children: React.ReactNode;
 }) {
-
   const operatingSystem = isAndroid ? 'Android' : isIOS ? 'iOS' : isWindows ? 'Windows' : isMacOs ? 'macOS' : '';
   const device = isMobile ? 'Mobile' : isBrowser ? 'Desktop' : '';
 
@@ -19,6 +18,11 @@ export default function AsyncLDProvider({
       clientSideID: process.env.NEXT_PUBLIC_LD_CLIENT_KEY || '',
       reactOptions: {
         useCamelCaseFlagKeys: false
+      },
+      options: {
+        streamUrl: 'https://stream-stg.launchdarkly.com',
+        baseUrl: 'https://sdk-stg.launchdarkly.com',
+        eventsUrl: 'https://events-stg.launchdarkly.com',
       },
       context: {
         kind: "multi",

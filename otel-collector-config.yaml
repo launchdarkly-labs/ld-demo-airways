@@ -13,7 +13,7 @@ exporters:
       insecure: true
 
   otlphttp/launchdarkly:
-    traces_endpoint: https://events.launchdarkly.com/otlp/traces
+    traces_endpoint: https://events-stg.launchdarkly.com/otlp/traces
     encoding: json
     headers:
       Authorization: ${env:LD_ACCESS_TOKEN}
