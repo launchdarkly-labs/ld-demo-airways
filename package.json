@@ -10,8 +10,8 @@
     "generate": "drizzle-kit generate:pg"
   },
   "dependencies": {
-    "@launchdarkly/node-server-sdk": "^9.3.0-alpha.1",
-    "@launchdarkly/node-server-sdk-otel": "^0.0.1",
+    "@launchdarkly/node-server-sdk": "^9.3.0",
+    "@launchdarkly/node-server-sdk-otel": "^1.0.0",
     "@opentelemetry/api": "^1.7.0",
     "@opentelemetry/exporter-trace-otlp-http": "^0.49.1",
     "@opentelemetry/resources": "^1.22.0",

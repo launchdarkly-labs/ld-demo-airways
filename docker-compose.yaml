@@ -20,8 +20,7 @@ services:
     env_file:
       - path: ./.env.local
         required: true
-    # environment:
-    #   - LD_ACCESS_TOKEN=${LD_ACCESS_TOKEN}
+
     volumes:
       - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
     ports:

@@ -2,10 +2,10 @@ import { Airports } from "@/lib/airports";
 
 import { NextRequest, NextResponse } from "next/server";
 import { getServerClient } from "@/utils/ld-server";
-import { fetchAirportsFromFastCache } from "@/fastCache";
 import { fetchAirportsFromRedis } from "@/db/redis";
 import Redis from "ioredis";
 import { fetchAirportsFromPostgres } from "@/db/postgres";
+import { getFlagContext } from "@/utils/ld-server/serverClient";
 
 export const dynamic = "force-dynamic";
 
@@ -45,11 +45,3 @@ export async function POST(request: NextRequest, response: NextResponse) {
     return new Response("Internal Server Error", { status: 500 });
   }
 }
-
-const getFlagContext = () => {
-  return {
-    kind: "user",
-    key: "jenn+" + Math.random().toString(36).substring(2, 5),
-    name: "jenn toggles",
-  };
-};

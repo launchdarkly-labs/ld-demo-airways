@@ -6,14 +6,13 @@ receivers:
 
 exporters:
   logging:
-
   otlp/jaeger:
     endpoint: jaeger-all-in-one:4317
     tls:
       insecure: true
 
   otlphttp/launchdarkly:
-    traces_endpoint: https://events-stg.launchdarkly.com/otlp/traces
+    traces_endpoint: https://events.launchdarkly.com/otlp/traces
     encoding: json
     headers:
       Authorization: ${env:LD_ACCESS_TOKEN}
@@ -24,12 +23,14 @@ processors:
   groupbytrace:
     wait_duration: 3s
 
+  # Remove all span events that are not "feature_flag" or "exception"
   filter/launchdarkly-spanevents:
     error_mode: ignore
     traces:
       spanevent:
         - 'not (name == "feature_flag" or name == "exception")'
 
+  # Remove all spans that do not have an HTTP route or any span events left after the previous filter
   filter/launchdarkly-spans:
     error_mode: ignore
     traces:
@@ -42,8 +43,8 @@ extensions:
   health_check:
 
 service:
-  extensions: [health_check]
   pipelines:
+    # Add a new pipeline to send data to LaunchDarkly
     traces/ld:
       receivers: [otlp]
       processors:
@@ -53,8 +54,5 @@ service:
           groupbytrace,
           batch,
         ]
+
       exporters: [logging, otlphttp/launchdarkly, otlp/jaeger]
-    metrics:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [logging]
