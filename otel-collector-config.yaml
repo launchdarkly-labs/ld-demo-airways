@@ -12,11 +12,11 @@ exporters:
       insecure: true
 
   otlphttp/launchdarkly:
-    traces_endpoint: https://events.launchdarkly.com/otlp/traces
+    traces_endpoint: https://events-stg.launchdarkly.com/otlp/traces
     encoding: json
     headers:
-      Authorization: ${env:LD_ACCESS_TOKEN}
-      X-LaunchDarkly-Project: toggle-airlines
+      Authorization: ${env:LD_ACCESS_TOKEN_STAGING}
+      X-LaunchDarkly-Project: otlp-blitz
       X-LaunchDarkly-Environment: henry-dev
 
 processors:
