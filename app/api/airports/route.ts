@@ -21,7 +21,29 @@ export async function GET(request: NextApiRequest, response: NextApiResponse) {
     let connectionString;
     if (flightDb) {
         const t1 = Date.now()
-        console.log('FlightDb is enabled');
+        console.log('FlightDb Feature is Enabled');
+        try {
+            const redis = new Redis(process.env.REDIS_URL || '');
+            const airportsRedisJson = await redis.get('allAirports');
+            const allAirports = JSON.parse(airportsRedisJson!);
+            const t2 = Date.now()
+            console.log("Redis speed is: " + (t2 - t1) + "ms")
+            const speed = (t2 - t1)
+
+            ldclient.track("Airport DB Latency", context, null, speed)
+            
+            await ldclient.flush()
+            return Response.json({ allAirports })
+        } catch (error) {
+            ldclient.track("Airport DB Errors", context)
+            await ldclient.flush()
+            console.log("error")
+            return Response.json({ message: 'Pool went kaboom' })
+        }
+        
+    } else {
+        const t1 = Date.now()
+        console.log('FlightDb is disabled');
         connectionString = process.env.DATABASE_URL
         try {
             if (!connectionString) {
@@ -30,9 +52,8 @@ export async function GET(request: NextApiRequest, response: NextApiResponse) {
             const client = postgres(connectionString)
             const db = drizzle(client);
             const allAirports = await db.select().from(airports)
-            console.log(allAirports)
             const t2 = Date.now()
-            console.log("PostgreSQL speed is: " + (t2 - t1)+ "ms")
+            console.log("PostgreSQL speed is: " + (t2 - t1) + "ms")
             const speed = (t2 - t1)
             ldclient.track("Airport DB Latency", context, null, speed)
             await ldclient.flush()
@@ -44,25 +65,6 @@ export async function GET(request: NextApiRequest, response: NextApiResponse) {
             console.log("error")
             return Response.json({ message: 'Pool went kaboom' })
         }
-    } else {
-        const t1 = Date.now()
-        console.log('FlightDb is disabled');
-        try {
-        const redis = new Redis(process.env.REDIS_URL || '');
-        const airportsRedisJson = await redis.get('allAirports');
-        const allAirports = JSON.parse(airportsRedisJson!);
-        const t2 = Date.now()
-        console.log("Redis speed is: " + (t2 - t1)+ "ms")
-        const speed = (t2 - t1)
-        console.log(speed)
-        ldclient.track("Airport DB Latency", context, null, speed)
-        await ldclient.flush()
-        return Response.json({ allAirports })
-    } catch (error) {
-        ldclient.track("Airport DB Errors", context)
-        await ldclient.flush()
-        return Response.json({ message: 'Pool went kaboom' })
-    }
     }
 }
 

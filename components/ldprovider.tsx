@@ -18,7 +18,14 @@ export default function AsyncLDProvider({
     asyncWithLDProvider({
       clientSideID: process.env.NEXT_PUBLIC_LD_CLIENT_KEY || '',
       reactOptions: {
+
         useCamelCaseFlagKeys: false
+      },
+      options: {
+        application: {
+          id: "launch-airways",
+          version: "74a420c9dfe4981d221551e1305ba152a2342fec"
+        }
       },
       context: {
         kind: "multi",

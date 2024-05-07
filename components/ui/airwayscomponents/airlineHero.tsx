@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import LaunchSignUp from "./launchSignup";
 import LoginContext from "@/utils/contexts/login";
+import { useFlags } from "launchdarkly-react-client-sdk";
 
 const AirlineHero = ({
   showSearch,
@@ -12,6 +13,8 @@ const AirlineHero = ({
   launchClubLoyalty: any;
 }) => {
   const { isLoggedIn, enrolledInLaunchClub } = useContext(LoginContext);
+
+  const { launchClubText} = useFlags();
 
   return (
     <section className={`airline-hero-image ${showSearch ? "blur-lg" : ""}`}>
@@ -43,17 +46,16 @@ const AirlineHero = ({
                   initial={{ x: 300 }}
                   animate={{ x: 0 }}
                   transition={{ type: "spring", stiffness: 50 }}
-                  className="flex flex-col p-10 gap-y-8 z-30  w-full h-auto sm:h-[300px] sm:w-[500px]
+                  className="flex flex-col p-10 gap-y-8 z-30  w-full  sm:w-[500px]
                    bg-gradient-releases shadow-2xl mb-[5rem]  lg:my-32 lg:absolute lg:right-10 rounded-lg text-white"
                 >
                   <div className="text-center">
-                    <h3 className="text-4xl text-center mb-4">Are you ready to Launch?!</h3>
-                    <p className="text-xl ">
-                      Join Launch Club for exclusive access to flights, rewards, and much more. See
-                      details within!
+                    {/* <h3 className="text-4xl text-center mb-4">Are you ready to Launch?!</h3> */}
+                    <p className="text-2xl">
+                      {launchClubText}
                     </p>
                   </div>
-                  <div className="h-full flex self-center">
+                  <div className="max-h-[200px] bottom-0 flex">
                     <LaunchSignUp />
                   </div>
                 </motion.div>

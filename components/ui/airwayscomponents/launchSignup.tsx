@@ -46,6 +46,8 @@ export default function LaunchSignUp() {
     const context = await client?.getContext();
     context.user.launchclub = "standard";
     client.identify(context);
+    client?.track("registration-completed", context)
+    client?.flush()
   };
 
   const perks = [
@@ -126,6 +128,9 @@ export default function LaunchSignUp() {
               <div className="flex text-xl my-4 text-black text-center">
                 Introducing our the new Launch Airways loyalty program. Join now for exclusive
                 member perks that increase the more you fly!
+              </div>
+              <div>
+                <p>hi aaron</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 place-content-between w-full my-10">
                 {perks.map((perks, index) => (
