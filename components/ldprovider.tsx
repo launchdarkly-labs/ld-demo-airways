@@ -24,7 +24,7 @@ export default function AsyncLDProvider({
       options: {
         application: {
           id: "launch-airways",
-          version: "02e338aae590c7f4c66b0dc86913ca86b1de05fd"
+          version: "72c989d789d0835127e2c61dde582cc70ce15b75"
         }
       },
       context: {
