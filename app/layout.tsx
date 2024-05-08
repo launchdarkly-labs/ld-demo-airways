@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import { TripsProvider } from "@/utils/contexts/TripContext";
 import LoginContext, { LoginProvider } from "@/utils/contexts/login";
 import { v4 as uuidv4 } from "uuid";
+import type { Viewport } from 'next'
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,8 +18,17 @@ const AsyncLDProvider = dynamic(() => import("@/components/ldprovider"), {
 export const metadata: Metadata = {
   title: "LaunchAirways",
   description: "LaunchAirways Sample App",
-  viewport: "width=device-width, initial-scale=1",
+  // viewport: "width=device-width, initial-scale=1",
 };
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  // Also supported by less commonly used
+  // interactiveWidget: 'resizes-visual',
+}
 
 export default function RootLayout({
   children,

@@ -16,12 +16,14 @@ import { Card, CardHeader, CardTitle, CardContent } from "../card";
 import TripsContext from "@/utils/contexts/TripContext";
 import BookedFlights from "./bookedFlights";
 import LoginContext from "@/utils/contexts/login";
-import { useLDClient } from "launchdarkly-react-client-sdk";
+import { useLDClient, useFlags } from "launchdarkly-react-client-sdk";
 
 export default function LaunchSignUp() {
   const client = useLDClient();
 
   const { bookedTrips, cancelTrip, setBookedTrips } = useContext(TripsContext);
+
+  const { launchClubButton } = useFlags();
 
   const {
     isLoggedIn,
@@ -45,10 +47,16 @@ export default function LaunchSignUp() {
     setLaunchClubStatus("standard");
     const context = await client?.getContext();
     context.user.launchclub = "standard";
-    client.identify(context);
-    client?.track("registration-completed", context)
+    await client.identify(context);
+    await client?.track("Signup Completed", context)
     client?.flush()
   };
+
+  const trackRegClick = async () => {
+    const context = await client?.getContext();
+    await client?.track("Registration clicked", context)
+    client?.flush()
+  }
 
   const perks = [
     {
@@ -107,8 +115,8 @@ export default function LaunchSignUp() {
   return (
     <Sheet>
       <SheetTrigger className="text-white z-50" asChild>
-        <Button className="bg-pink-600 rounded-none h-full w-full  mx-auto text-3xl px-6 py-4 lg:px-4">
-          Join Launch Club
+        <Button onClick={() => { trackRegClick() }} className="bg-pink-600 rounded-none h-full w-full  mx-auto text-3xl enrollbutton px-6 py-4 lg:px-4">
+         {launchClubButton}
         </Button>
       </SheetTrigger>
       {!enrolledInLaunchClub ? (
@@ -129,9 +137,6 @@ export default function LaunchSignUp() {
                 Introducing our the new Launch Airways loyalty program. Join now for exclusive
                 member perks that increase the more you fly!
               </div>
-              <div>
-                <p>hi aaron</p>
-              </div>
               <div className="flex flex-col sm:flex-row gap-4 place-content-between w-full my-10">
                 {perks.map((perks, index) => (
                   <Card
@@ -140,7 +145,7 @@ export default function LaunchSignUp() {
                     align-items-center drop-shadow-2xl p-4 gap-y-2"
                   >
                     <CardHeader className="!p-0">
-                      <Image src={perks.img} height={200} width={200} alt="image"  />
+                      <Image src={perks.img} height={200} width={200} alt="image" />
                     </CardHeader>
                     <CardTitle className="text-lg ">{perks.name}</CardTitle>
                     <CardContent className="text-sm text-center !p-0">
@@ -155,7 +160,7 @@ export default function LaunchSignUp() {
                     onClick={() => {
                       enrollLaunchClub();
                     }}
-                    className="w-full mx-auto font-sohnelight text-white rounded-none bg-gradient-to-tr from-airlinepurple to-airlinepink text-lg"
+                    className="w-full mx-auto font-sohnelight confirmenroll text-white rounded-none bg-gradient-to-tr from-airlinepurple to-airlinepink text-lg"
                   >
                     Enroll Today!
                   </Button>

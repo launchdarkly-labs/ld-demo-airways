@@ -47,9 +47,9 @@ const AirlineHero = ({
                   animate={{ x: 0 }}
                   transition={{ type: "spring", stiffness: 50 }}
                   className="flex flex-col p-10 gap-y-8 z-30  w-full  sm:w-[500px]
-                   bg-gradient-releases shadow-2xl mb-[5rem]  lg:my-32 lg:absolute lg:right-10 rounded-lg text-white"
+                   bg-gradient-releases shadow-2xl mb-[5rem] lg:my-32 lg:absolute lg:right-10 rounded-lg text-white"
                 >
-                  <div className="text-center">
+                  <div className="text-center prodcard">
                     {/* <h3 className="text-4xl text-center mb-4">Are you ready to Launch?!</h3> */}
                     <p className="text-2xl">
                       {launchClubText}

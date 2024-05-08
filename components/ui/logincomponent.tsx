@@ -144,7 +144,7 @@ export function LoginComponent({ isLoggedIn, setIsLoggedIn, loginUser, variant, 
 
         <Button
           onClick={handleLogin}
-          className={`mb-4 w-full h-full mx-auto font-audimat rounded-none  text-xl ${variantClass}`}>
+          className={`mb-4 w-full h-full mx-auto font-audimat signin rounded-none  text-xl ${variantClass}`}>
           Login with SSO
         </Button>
 

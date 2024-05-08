@@ -9,7 +9,7 @@ import * as ld from '@launchdarkly/node-server-sdk';
 
 export const dynamic = 'force-dynamic'
 
-export async function GET(request: NextApiRequest, response: NextApiResponse) {
+export async function GET() {
     const context = {
         "kind": 'user',
         "key": 'jenn+' + Math.random().toString(36).substring(2, 5),
@@ -68,7 +68,7 @@ export async function GET(request: NextApiRequest, response: NextApiResponse) {
     }
 }
 
-export async function POST(request: NextApiRequest, response: NextApiResponse) {
+export async function POST() {
     try {
         const redis = new Redis(process.env.REDIS_URL || '');
         const airportsJson = JSON.stringify(Airports);
