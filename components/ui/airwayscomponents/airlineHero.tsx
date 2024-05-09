@@ -14,7 +14,7 @@ const AirlineHero = ({
 }) => {
   const { isLoggedIn, enrolledInLaunchClub } = useContext(LoginContext);
 
-  const { launchClubText} = useFlags();
+  const { launchClubText, launchClubCopy } = useFlags();
 
   return (
     <section className={`airline-hero-image ${showSearch ? "blur-lg" : ""}`}>
@@ -50,9 +50,9 @@ const AirlineHero = ({
                    bg-gradient-releases shadow-2xl mb-[5rem] lg:my-32 lg:absolute lg:right-10 rounded-lg text-white"
                 >
                   <div className="text-center prodcard">
-                    {/* <h3 className="text-4xl text-center mb-4">Are you ready to Launch?!</h3> */}
+                    <h3 className="text-4xl text-center mb-4">{launchClubCopy.h1}</h3>
                     <p className="text-2xl">
-                      {launchClubText}
+                    {launchClubCopy.h2}
                     </p>
                   </div>
                   <div className="max-h-[200px] bottom-0 flex">

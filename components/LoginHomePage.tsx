@@ -34,12 +34,6 @@ export default function LoginHomePage({ variant, name, ...props }: LoginHomePage
         variant === 'airlines' ? 'bg-gradient-airways' :
           variant === 'market' ? ' bg-market-header grid items-center justify-center' : ''
         } mb-[4rem]`}>
-        {variant === 'market' && (
-          <div>
-            <img src="elipse.png" alt="Market" className="absolute right-0 top-0" />
-            <img src="union.png" className="absolute left-0 bottom-0" />
-          </div>
-        )}
         <div
           className="w-full py-14 sm:py-[8rem] px-12 xl:px-32 2xl:px-[300px] 3xl:px-[400px] flex flex-col sm:flex-row justify-between
              items-center sm:items-start"
@@ -48,7 +42,6 @@ export default function LoginHomePage({ variant, name, ...props }: LoginHomePage
             className="grid grid-cols-2 sm:flex flex-row sm:flex-col 
               text-white w-full sm:w-1/2 justify-start mb-4 pr-10 sm:mb-0 gap-y-10"
           >
-            {/* <img src="ToggleBankHeader.png" width={52} className="pb-0" /> */}
             <p className="text-2xl lg:text-6xl xl:text-[80px] 3xl:text-[112px] font-audimat col-span-2 sm:col-span-0 w-full">
               Welcome to {name}{" "}
             </p>

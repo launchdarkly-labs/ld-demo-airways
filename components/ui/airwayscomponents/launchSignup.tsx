@@ -23,8 +23,6 @@ export default function LaunchSignUp() {
 
   const { bookedTrips, cancelTrip, setBookedTrips } = useContext(TripsContext);
 
-  const { launchClubButton } = useFlags();
-
   const {
     isLoggedIn,
     setIsLoggedIn,
@@ -41,6 +39,8 @@ export default function LaunchSignUp() {
     logoutUser();
     setUsername("");
   };
+
+  const { launchClubCopy } = useFlags();
 
   const enrollLaunchClub = async () => {
     setEnrolledInLaunchClub(true);
@@ -116,7 +116,7 @@ export default function LaunchSignUp() {
     <Sheet>
       <SheetTrigger className="text-white z-50" asChild>
         <Button onClick={() => { trackRegClick() }} className="bg-pink-600 rounded-none h-full w-full  mx-auto text-3xl enrollbutton px-6 py-4 lg:px-4">
-         {launchClubButton}
+         {launchClubCopy.button}
         </Button>
       </SheetTrigger>
       {!enrolledInLaunchClub ? (

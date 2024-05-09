@@ -17,10 +17,10 @@ export default function AsyncLDProvider({
   const LDDynaProvider = use(
     asyncWithLDProvider({
       clientSideID: process.env.NEXT_PUBLIC_LD_CLIENT_KEY || '',
-      reactOptions: {
+      // reactOptions: {
 
-        useCamelCaseFlagKeys: false
-      },
+      //   useCamelCaseFlagKeys: false
+      // },
       options: {
         application: {
           id: "launch-airways",

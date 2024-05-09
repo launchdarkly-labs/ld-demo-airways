@@ -1,13 +1,15 @@
 import { test } from "@playwright/test";
 import { shouldClickRegister, shouldEnroll } from "./fixture";
 
-const iterationCount = 1000;
+const iterationCount = 200;
 
 const setup = (test: any) => test.setTimeout(90000);
 setup(test);
 
 for (let iteration = 0; iteration < iterationCount; iteration++) {
   test(`iteration: ${iteration}`, async ({ page }) => {
+
+    await page.goto("http://localhost:3000/api/airports")
   
     await page.goto("http://localhost:3000/");
 

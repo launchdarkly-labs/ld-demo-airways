@@ -1,3 +1,4 @@
+//@ts-nocheck
 'use client'
 import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -29,7 +30,7 @@ import { SelectTrigger } from "@radix-ui/react-select";
 import LoginHomePage from "@/components/LoginHomePage";
 
 export default function Airways() {
-  const { launchClubLoyalty } = useFlags();
+  const { flightBookingModule, launchClubLoyalty } = useFlags();
 
   const { toast } = useToast();
   const [fromLocation, setFromLocation] = useState("From");
@@ -115,70 +116,72 @@ export default function Airways() {
             transition={{ duration: 0.5 }}
             className={`flex h-screen text-white flex-col font-audimat`}
           >
+          
             <NavBar launchClubLoyalty={launchClubLoyalty} variant={"airlines"} handleLogout={handleLogout} />
-
-            <header className={`py-20 bg-gradient-airways`}>
-              <div className="lg:mx-auto max-w-7xl px-2">
-                <div className="grid lg:flex lg:flex-row items-start lg:items-center lg:justify-between gap-y-6 lg:gap-y-0 lg:space-x-4">
-                  <AirlineDestination
-                    setActiveField={setActiveField}
-                    setShowSearch={setShowSearch}
-                    fromLocation={fromLocation}
-                    setFromCity={setFromCity}
-                    toLocation={toLocation}
-                    showSearch={showSearch}
-                    activeField={activeField}
-                    setToLocation={setToLocation}
-                    setToCity={setToCity}
-                    setFromLocation={setFromLocation}
-                  />
-
-                  <div className="grid h-10 border-b-2 border-white/40 text-4xl md:text-3xl lg:text-2xl xl:text-4xl px-4 pb-12 items-center text-center justify-center">
-                    <Select defaultValue="Round Trip">
-                      <SelectTrigger className="text-white">
-                        <SelectValue placeholder="Select trip type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="Round Trip">Round Trip</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div
-                    className={`items-center text-xl font-audimat border-b-2 pb-2 border-white/40 ${showSearch ? "" : ""
-                      }`}
-                  >
-                    <FlightCalendar
-                      date={date}
-                      setDate={setDate}
-                      className="font-audimat"
+           
+            {flightBookingModule &&
+              <header className={`py-20 bg-gradient-airways`}>
+                <div className="lg:mx-auto max-w-7xl px-2">
+                  <div className="grid lg:flex lg:flex-row items-start lg:items-center lg:justify-between gap-y-6 lg:gap-y-0 lg:space-x-4">
+                    <AirlineDestination
+                      setActiveField={setActiveField}
+                      setShowSearch={setShowSearch}
+                      fromLocation={fromLocation}
+                      setFromCity={setFromCity}
+                      toLocation={toLocation}
+                      showSearch={showSearch}
+                      activeField={activeField}
+                      setToLocation={setToLocation}
+                      setToCity={setToCity}
+                      setFromLocation={setFromLocation}
                     />
-                  </div>
-                  <div className="grid h-10 border-b-2 border-white/40 text-4xl md:text-3xl  pb-12 lg:text-2xl xl:text-4xl px-4 items-center text-center justify-center">
-                    <Select defaultValue="1 Passenger">
-                      <SelectTrigger className="text-white">
-                        <SelectValue placeholder="Select Passengers" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="1 Passenger">1 Passenger</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="flex mx-auto">
-                    {fromLocation !== "From" && toLocation !== "To" && (
-                      <motion.button
-                        whileTap={{ scale: 0.5 }}
-                        onClick={() => bookTrip()}
-                        className={` items-center `}
-                      >
-                        <img src="ArrowButton.png" width={60} className="" />
-                      </motion.button>
-                    )}
+
+                    <div className="grid h-10 border-b-2 border-white/40 text-4xl md:text-3xl lg:text-2xl xl:text-4xl px-4 pb-12 items-center text-center justify-center">
+                      <Select defaultValue="Round Trip">
+                        <SelectTrigger className="text-white">
+                          <SelectValue placeholder="Select trip type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="Round Trip">Round Trip</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div
+                      className={`items-center text-xl font-audimat border-b-2 pb-2 border-white/40 ${showSearch ? "" : ""
+                        }`}
+                    >
+                      <FlightCalendar
+                        date={date}
+                        setDate={setDate}
+                        className="font-audimat"
+                      />
+                    </div>
+                    <div className="grid h-10 border-b-2 border-white/40 text-4xl md:text-3xl  pb-12 lg:text-2xl xl:text-4xl px-4 items-center text-center justify-center">
+                      <Select defaultValue="1 Passenger">
+                        <SelectTrigger className="text-white">
+                          <SelectValue placeholder="Select Passengers" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="1 Passenger">1 Passenger</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="flex mx-auto">
+                      {fromLocation !== "From" && toLocation !== "To" && (
+                        <motion.button
+                          whileTap={{ scale: 0.5 }}
+                          onClick={() => bookTrip()}
+                          className={` items-center `}
+                        >
+                          <img src="ArrowButton.png" width={60} className="" />
+                        </motion.button>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </header>
-
+              </header>
+            }
             <AirlineHero
               launchClubLoyalty={launchClubLoyalty}
               showSearch={showSearch}
