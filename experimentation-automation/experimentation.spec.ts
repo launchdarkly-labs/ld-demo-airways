@@ -9,9 +9,13 @@ setup(test);
 for (let iteration = 0; iteration < iterationCount; iteration++) {
   test(`iteration: ${iteration}`, async ({ page }) => {
 
-    await page.goto("http://localhost:3000/api/airports")
+    // await page.goto("http://localhost:3000/api/airports")
   
-    await page.goto("http://localhost:3000/");
+    // await page.goto("http://localhost:3000/");
+
+    await page.goto("https://launch-airways.up.railway.app/api/airports")
+  
+    await page.goto("https://launch-airways.up.railway.app/");
 
     await page.click('button.signin')
 
