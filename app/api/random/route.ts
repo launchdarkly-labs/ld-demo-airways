@@ -8,7 +8,7 @@ export async function GET(request: NextRequest, response: NextResponse) {
     const ldClient = await getServerClient();
     const context = getFlagContext();
     const errorRate = await ldClient.numberVariation(
-      "random-err-rate",
+      "random-error-rate",
       context,
       0.0
     );

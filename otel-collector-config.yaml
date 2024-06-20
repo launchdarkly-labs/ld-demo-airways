@@ -11,6 +11,11 @@ exporters:
     tls:
       insecure: true
 
+  otlp/honeycomb:
+    endpoint: api.honeycomb.io:443
+    headers:
+      x-honeycomb-team: ${env:HONEYCOMB_API_KEY}
+
   otlphttp/launchdarkly:
     traces_endpoint: https://events-stg.launchdarkly.com/otlp/traces
     encoding: json
@@ -54,5 +59,8 @@ service:
           groupbytrace,
           batch,
         ]
-
       exporters: [logging, otlphttp/launchdarkly, otlp/jaeger]
+    traces/honeycomb:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp/honeycomb]
